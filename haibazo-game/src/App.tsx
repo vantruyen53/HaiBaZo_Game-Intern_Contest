@@ -17,7 +17,7 @@ function App() {
   const [totalSelected, setTotalSelected] = useState(0)
   const [nextOrder, setNextOrder] = useState(1);
 
-  const timerRef = useRef<number|null>(null)
+  const timerRef = useRef<number|undefined>(undefined)
 
   const stopTimer = () => {
     clearInterval(timerRef.current);

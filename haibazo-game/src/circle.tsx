@@ -18,7 +18,7 @@ export default function Circle({diameter, order, totalPoints , topPosition, left
   const [remainingTime, setRemainingTime] = useState<number>(3000)
   const [selected, setSelected] = useState(false)
 
-  const timerRef = useRef<number|null>(null)
+  const timerRef = useRef<number|undefined>(undefined)
 
   function stopTimer(){
     clearInterval(timerRef.current)
