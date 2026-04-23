@@ -16,6 +16,7 @@ function App() {
   const [playingStatus, setPlayingStatus] = useState<'play'| 'game-over'|'all-cleared'>('play')
   const [totalSelected, setTotalSelected] = useState(0)
   const [nextOrder, setNextOrder] = useState(1);
+  const [gameKey, setGameKey] = useState(0)
 
   const timerRef = useRef<number|undefined>(undefined)
 
@@ -73,6 +74,7 @@ function App() {
       setNextOrder(1);
       setAutoPlay(false)
       setStopCircleTimer(false)
+      setGameKey(pre => pre + 1)
 
       renderCircles();
 
@@ -94,6 +96,7 @@ function App() {
       setNextOrder(1);
       setAutoPlay(false)
       setStopCircleTimer(false)
+      setGameKey(pre => pre + 1)
     }
 
   }
@@ -128,7 +131,7 @@ function App() {
         {
           positions.map(item => {
             return <Circle
-              key={item.order}
+              key={`${gameKey}-${item.order}`}
               diameter={diameter}
               order={item.order}
               totalPoints={input}
